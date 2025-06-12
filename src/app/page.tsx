@@ -1,3 +1,12 @@
+import { Button, Space } from "antd";
+
 export default function Home() {
-	return <h1>yay</h1>;
+	return (
+		<div className="App">
+			<Space>
+				<Button type="primary">Primary</Button>
+				<Button>Default</Button>
+			</Space>
+		</div>
+	);
 }
