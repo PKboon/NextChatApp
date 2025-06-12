@@ -8,7 +8,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 			theme={{
 				token: {
 					colorPrimary: "#31304D",
-					borderRadius: 2,
 				},
 				components: {
 					Button: {

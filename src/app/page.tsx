@@ -1,11 +1,23 @@
-import { Button, Space } from "antd";
+import {
+	SignedIn,
+	SignedOut,
+	SignInButton,
+	SignUpButton,
+	UserButton,
+} from "@clerk/nextjs";
+import { Space } from "antd";
 
 export default function Home() {
 	return (
 		<div className="App">
 			<Space>
-				<Button type="primary">Primary</Button>
-				<Button>Default</Button>
+				<SignedOut>
+					<SignInButton />
+					<SignUpButton />
+				</SignedOut>
+				<SignedIn>
+					<UserButton />
+				</SignedIn>
 			</Space>
 		</div>
 	);

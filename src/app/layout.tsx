@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -18,10 +19,19 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body>
-				<ThemeProvider>{children}</ThemeProvider>
-			</body>
-		</html>
+		<ClerkProvider
+			afterSignOutUrl="/sign-in"
+			signInUrl="/sign-in"
+			signUpUrl="/sign-up"
+			appearance={{
+				variables: { colorPrimary: "#31304D" },
+			}}
+		>
+			<html lang="en">
+				<body>
+					<ThemeProvider>{children}</ThemeProvider>
+				</body>
+			</html>
+		</ClerkProvider>
 	);
 }
