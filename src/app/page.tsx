@@ -7,9 +7,17 @@ import {
 } from "@clerk/nextjs";
 import { Space } from "antd";
 
-export default function Home() {
+import { getCurrentUserFromMongoDB } from "@/actions/usersActions";
+import { connectMongoDB } from "@/configs/dbConfig";
+
+connectMongoDB();
+
+const Home = async () => {
+	const currentMongoDBUser = await getCurrentUserFromMongoDB();
+
 	return (
 		<div className="App">
+			{currentMongoDBUser.name}
 			<Space>
 				<SignedOut>
 					<SignInButton />
@@ -21,4 +29,5 @@ export default function Home() {
 			</Space>
 		</div>
 	);
-}
+};
+export default Home;
